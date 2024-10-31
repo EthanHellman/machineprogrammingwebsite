@@ -1,12 +1,11 @@
-// app/page.tsx
 'use client';
 
-import React from 'react';
-import { Calendar } from 'lucide-react';
+import React, { useState } from 'react';
+import { Calendar, ChevronDown, ChevronUp, Clock } from 'lucide-react';
 
 const Page = () => {
   const colors = {
-    background: 'bg-[#102F58]',
+    background: 'bg-[#062E5B]',
     text: 'text-white',
     accent: 'bg-[#4A90E2]',
     accentHover: 'hover:bg-[#357ABD]',
@@ -47,19 +46,19 @@ const Page = () => {
       abstract: `What if we've been solving the wrong equation? While everyone's busy implementing ML/AI, let's talk about how we use it to transform the open source ecosystem. Drawing from real-world examples across the CNCF landscape, we'll decode how ML is revolutionizing our code and our entire approach to open source collaboration.
 
 Pattern Recognition:
-* How ML helps us understand contribution patterns and community health
-* Where AI assists in code review, documentation, and issue triage
-* Why semantic understanding matters more than synthetic output
+• How ML helps us understand contribution patterns and community health
+• Where AI assists in code review, documentation, and issue triage
+• Why semantic understanding matters more than synthetic output
 
 Critical Variables:
-* The human factors that no model can replace
-* Why intention and critical thinking remain our most valuable constants
-* Real workflows where AI amplifies (rather than replaces) human insight
+• The human factors that no model can replace
+• Why intention and critical thinking remain our most valuable constants
+• Real workflows where AI amplifies (rather than replaces) human insight
 
 Practical Functions:
-* Tools and approaches that work (and why they work)
-* Patterns for integrating AI into open-source workflows
-* Methods for maintaining human judgment in automated processes
+• Tools and approaches that work (and why they work)
+• Patterns for integrating AI into open-source workflows
+• Methods for maintaining human judgment in automated processes
 
 Join me for an honest exploration of how ML/AI serves the open source ecosystem - not the other way around. Perfect for anyone interested in the real-world intersection of ML and open source, where success depends more on asking the right questions than having all the answers.`,
       bio: `Taylor Dolezal is the Head of Ecosystem at the Cloud Native Computing Foundation, where he steers initiatives and collaboration across the cloud native community. Based in Los Angeles, Taylor combines a love of tech and psychology with a keen focus on fostering innovation in the open source landscape. A long-time advocate of cloud native technologies, Taylor brings both strategic insight and practical knowledge to his work, helping drive the community forward while making it more accessible to all.`
@@ -76,6 +75,29 @@ Join me for an honest exploration of how ML/AI serves the open source ecosystem 
     }
   ];
 
+  // State for expanded sections
+  const [expandedSections, setExpandedSections] = useState({});
+
+  const toggleSection = (speakerIndex, section) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [`${speakerIndex}-${section}`]: !prev[`${speakerIndex}-${section}`]
+    }));
+  };
+
+  const formatAbstractWithBullets = (abstract) => {
+    return abstract.split('\n').map((line, index) => {
+      if (line.startsWith('•')) {
+        return (
+          <li key={index} className="ml-6">
+            {line.substring(1).trim()}
+          </li>
+        );
+      }
+      return <p key={index} className="mb-4">{line}</p>;
+    });
+  };
+
   return (
     <div className={`min-h-screen ${colors.background} ${colors.text}`}>
       <header className={`py-8 relative border-b ${colors.border}`}>
@@ -86,7 +108,7 @@ Join me for an honest exploration of how ML/AI serves the open source ecosystem 
               <h2 className="text-2xl font-lato mb-2">Stanford CS 329M</h2>
               <div className="flex items-center gap-2">
                 <Calendar className="w-5 h-5" />
-                <p className="text-xl font-lato">December 2, 2024 • 11:30 AM - 1:10 PM PST</p>
+                <p className="text-xl font-lato">December 2, 2024 • 11:00 AM - 1:00 PM PST</p>
               </div>
             </div>
             <div className="flex items-center gap-8">
@@ -132,7 +154,7 @@ Join me for an honest exploration of how ML/AI serves the open source ecosystem 
           {speakers.map((speaker, index) => (
             <div key={index} className={`${colors.card} rounded-lg p-8 shadow-md border ${colors.border} ${colors.cardHover} transition-all duration-200`}>
               <div className="flex flex-col md:flex-row gap-8">
-                <div className="flex-shrink-0 w-full md:w-48 flex flex-col items-center">
+                <div className="flex-shrink-0 w-full md:w-48">
                   <div className="w-24 h-24 rounded-full overflow-hidden bg-gray-200 mb-4">
                     <img 
                       src={speaker.image}
@@ -140,7 +162,7 @@ Join me for an honest exploration of how ML/AI serves the open source ecosystem 
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="text-center space-y-1 w-full">
+                  <div className="space-y-1">
                     <p className="font-lato font-medium">{speaker.name}</p>
                     <p className={`${colors.muted} text-sm font-light`}>{speaker.title}</p>
                     <p className={`${colors.muted} text-sm font-light`}>{speaker.organization}</p>
@@ -149,22 +171,59 @@ Join me for an honest exploration of how ML/AI serves the open source ecosystem 
                 <div className="flex-1 min-w-0">
                   <div className="flex justify-between items-start mb-6">
                     <h3 className="text-xl font-lato pr-4">{speaker.talkTitle}</h3>
-                    <span className={`${colors.muted} text-sm font-light flex-shrink-0`}>{speaker.time}</span>
+                    <div className={`${colors.accent} px-4 py-2 rounded-lg flex items-center gap-2 flex-shrink-0`}>
+                      <Clock className="w-4 h-4" />
+                      <span className="text-sm font-medium">{speaker.time}</span>
+                    </div>
                   </div>
                   <div className="space-y-6">
                     {speaker.abstract && (
                       <div>
-                        <h4 className="font-lato font-medium mb-3">Abstract:</h4>
-                        <p className={`${colors.muted} leading-relaxed whitespace-pre-line font-light max-w-full`}>
-                          {speaker.abstract}
-                        </p>
+                        <button
+                          onClick={() => toggleSection(index, 'abstract')}
+                          className={`w-full flex items-center justify-between p-3 rounded-lg font-lato font-medium hover:bg-[#234477] transition-colors ${expandedSections[`${index}-abstract`] ? 'bg-[#234477]' : 'bg-[#1D406E]'}`}
+                        >
+                          <div className="flex items-center gap-2">
+                            <h4 className="text-lg">Abstract</h4>
+                            {!expandedSections[`${index}-abstract`] && 
+                              <span className="text-sm text-gray-400 font-light">Click to expand</span>
+                            }
+                          </div>
+                          {expandedSections[`${index}-abstract`] ? (
+                            <ChevronUp className="w-5 h-5" />
+                          ) : (
+                            <ChevronDown className="w-5 h-5" />
+                          )}
+                        </button>
+                        {expandedSections[`${index}-abstract`] && (
+                          <div className={`${colors.muted} leading-relaxed font-light max-w-full mt-4 px-3`}>
+                            {formatAbstractWithBullets(speaker.abstract)}
+                          </div>
+                        )}
                       </div>
                     )}
                     <div>
-                      <h4 className="font-lato font-medium mb-3">Speaker Bio:</h4>
-                      <p className={`${colors.muted} leading-relaxed font-light max-w-full`}>
-                        {speaker.bio}
-                      </p>
+                      <button
+                        onClick={() => toggleSection(index, 'bio')}
+                        className={`w-full flex items-center justify-between p-3 rounded-lg font-lato font-medium hover:bg-[#234477] transition-colors ${expandedSections[`${index}-bio`] ? 'bg-[#234477]' : 'bg-[#1D406E]'}`}
+                      >
+                        <div className="flex items-center gap-2">
+                          <h4 className="text-lg">Speaker Bio</h4>
+                          {!expandedSections[`${index}-bio`] && 
+                            <span className="text-sm text-gray-400 font-light">Click to expand</span>
+                          }
+                        </div>
+                        {expandedSections[`${index}-bio`] ? (
+                          <ChevronUp className="w-5 h-5" />
+                        ) : (
+                          <ChevronDown className="w-5 h-5" />
+                        )}
+                      </button>
+                      {expandedSections[`${index}-bio`] && (
+                        <p className={`${colors.muted} leading-relaxed font-light max-w-full mt-4 px-3`}>
+                          {speaker.bio}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
