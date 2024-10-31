@@ -85,7 +85,7 @@ Join me for an honest exploration of how ML/AI serves the open source ecosystem 
             <h2 className="text-2xl font-serif mb-2">Stanford CS 329M</h2>
             <div className="flex items-center gap-2">
               <Calendar className="w-5 h-5" />
-              <p className="text-xl font-serif">12/2/24 11:30 AM - 1:20 PM PST</p>
+              <p className="text-xl font-serif">12/2/24 11:00 AM - 1:20 PM PST</p>
             </div>
           </div>
           <div className="flex items-center gap-8">
