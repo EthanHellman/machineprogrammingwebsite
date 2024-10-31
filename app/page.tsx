@@ -154,7 +154,7 @@ Join me for an honest exploration of how ML/AI serves the open source ecosystem 
           {speakers.map((speaker, index) => (
             <div key={index} className={`${colors.card} rounded-lg p-8 shadow-md border ${colors.border} ${colors.cardHover} transition-all duration-200`}>
               <div className="flex flex-col md:flex-row gap-8">
-                <div className="flex-shrink-0 w-full md:w-48">
+              <div className="flex-shrink-0 w-full md:w-48">
                   <div className="w-24 h-24 rounded-full overflow-hidden bg-gray-200 mb-4">
                     <img 
                       src={speaker.image}
@@ -162,10 +162,16 @@ Join me for an honest exploration of how ML/AI serves the open source ecosystem 
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="space-y-1">
-                    <p className="font-lato font-medium">{speaker.name}</p>
-                    <p className={`${colors.muted} text-sm font-light`}>{speaker.title}</p>
-                    <p className={`${colors.muted} text-sm font-light`}>{speaker.organization}</p>
+                  <div className="space-y-2">
+                    <p className="font-lato font-bold text-lg tracking-wide">
+                      {speaker.name}
+                    </p>
+                    <p className={`${colors.muted} text-sm italic font-medium`}>
+                      {speaker.title}
+                    </p>
+                    <p className={`${colors.muted} text-sm font-light border-b border-gray-600 pb-2`}>
+                      {speaker.organization}
+                    </p>
                   </div>
                 </div>
                 <div className="flex-1 min-w-0">
@@ -177,11 +183,11 @@ Join me for an honest exploration of how ML/AI serves the open source ecosystem 
                     </div>
                   </div>
                   <div className="space-y-6">
-                    {speaker.abstract && (
+                  {speaker.abstract && (
                       <div>
                         <button
                           onClick={() => toggleSection(index, 'abstract')}
-                          className={`w-full flex items-center justify-between p-3 rounded-lg font-lato font-medium hover:bg-[#234477] transition-colors ${expandedSections[`${index}-abstract`] ? 'bg-[#234477]' : 'bg-[#1D406E]'}`}
+                          className={`w-full flex items-center justify-between p-3 rounded-lg font-lato font-medium hover:bg-[#2A507F] transition-colors ${expandedSections[`${index}-abstract`] ? 'bg-[#2A507F]' : 'bg-[#1D406E]'}`}
                         >
                           <div className="flex items-center gap-2">
                             <h4 className="text-lg">Abstract</h4>
@@ -205,7 +211,7 @@ Join me for an honest exploration of how ML/AI serves the open source ecosystem 
                     <div>
                       <button
                         onClick={() => toggleSection(index, 'bio')}
-                        className={`w-full flex items-center justify-between p-3 rounded-lg font-lato font-medium hover:bg-[#234477] transition-colors ${expandedSections[`${index}-bio`] ? 'bg-[#234477]' : 'bg-[#1D406E]'}`}
+                        className={`w-full flex items-center justify-between p-3 rounded-lg font-lato font-medium hover:bg-[#2A507F] transition-colors ${expandedSections[`${index}-bio`] ? 'bg-[#2A507F]' : 'bg-[#1D406E]'}`}
                       >
                         <div className="flex items-center gap-2">
                           <h4 className="text-lg">Speaker Bio</h4>
