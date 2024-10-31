@@ -1,10 +1,10 @@
+// app/page.tsx
 'use client';
 
 import React from 'react';
 import { Calendar } from 'lucide-react';
 
 const Page = () => {
-  // Merly color scheme
   const colors = {
     background: 'bg-[#102F58]',
     text: 'text-white',
@@ -78,30 +78,32 @@ Join me for an honest exploration of how ML/AI serves the open source ecosystem 
 
   return (
     <div className={`min-h-screen ${colors.background} ${colors.text}`}>
-      <header className={`py-8 px-6 relative border-b ${colors.border}`}>
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div>
-            <h1 className="text-4xl font-serif mb-4">Machine Programming Lecture Day</h1>
-            <h2 className="text-2xl font-serif mb-2">Stanford CS 329M</h2>
-            <div className="flex items-center gap-2">
-              <Calendar className="w-5 h-5" />
-              <p className="text-xl font-serif">12/2/24 11:00 AM - 1:20 PM PST</p>
+      <header className={`py-8 relative border-b ${colors.border}`}>
+        <div className="max-w-7xl mx-auto">
+          <div className="px-6 flex justify-between items-center">
+            <div>
+              <h1 className="text-4xl font-lato mb-4">Machine Programming Lecture Day</h1>
+              <h2 className="text-2xl font-lato mb-2">Stanford CS 329M</h2>
+              <div className="flex items-center gap-2">
+                <Calendar className="w-5 h-5" />
+                <p className="text-xl font-lato">December 2, 2024 • 11:30 AM - 1:10 PM PST</p>
+              </div>
             </div>
-          </div>
-          <div className="flex items-center gap-8">
-            <div className="w-24 h-24 flex items-center justify-center">
-              <img 
-                src="/images/Stanford_Cardinal_logo.svg.png"
-                alt="Stanford Logo" 
-                className="h-full w-auto object-contain"
-              />
-            </div>
-            <div className="w-24 h-24 flex items-center justify-center">
-              <img 
-                src="/images/merly.jpg"
-                alt="Merly Logo" 
-                className="h-full w-auto object-contain"
-              />
+            <div className="flex items-center gap-8">
+              <div className="w-24 h-24 flex items-center justify-center">
+                <img 
+                  src="/images/Stanford_Cardinal_logo.svg.png"
+                  alt="Stanford Logo" 
+                  className="h-full w-auto object-contain"
+                />
+              </div>
+              <div className="w-24 h-24 flex items-center justify-center">
+                <img 
+                  src="/images/merly.jpg"
+                  alt="Merly Logo" 
+                  className="h-full w-auto object-contain"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -109,10 +111,10 @@ Join me for an honest exploration of how ML/AI serves the open source ecosystem 
 
       <main className="max-w-7xl mx-auto px-6 py-8">
         <section className={`${colors.card} rounded-lg p-6 shadow-md mb-8 border ${colors.border}`}>
-          <p className={`${colors.muted} leading-relaxed`}>
+          <p className={`${colors.muted} leading-relaxed font-light`}>
             Join us for an exciting series of talks exploring the cutting-edge of machine programming and AI. This special lecture event brings together leading experts from Atlas Computing, Pasteur Labs, CNCF, and IBM to discuss recent breakthroughs in specification-based AI, differentiable programming, and the future of open source development.
           </p>
-          <p className={`${colors.muted} leading-relaxed mt-4`}>
+          <p className={`${colors.muted} leading-relaxed mt-4 font-light`}>
             From scaling human review systems to revolutionizing physics simulations, our speakers will present innovative approaches to some of the most challenging problems in software development and AI safety.
           </p>
         </section>
@@ -121,44 +123,48 @@ Join me for an honest exploration of how ML/AI serves the open source ecosystem 
           href="https://www.eventbrite.com/e/cs-329m-speaker-series-mock-event-tickets-1063243753689" 
           target="_blank" 
           rel="noopener noreferrer"
-          className={`inline-block ${colors.accent} ${colors.accentHover} text-white px-8 py-3 rounded-lg transition-colors duration-200 mb-8 shadow-lg`}
+          className={`inline-block ${colors.accent} ${colors.accentHover} text-white px-8 py-3 rounded-lg transition-colors duration-200 mb-8 shadow-lg font-lato`}
         >
           Reserve Your Spot Now
         </a>
 
         <section className="space-y-8">
           {speakers.map((speaker, index) => (
-            <div key={index} className={`${colors.card} rounded-lg p-6 shadow-md border ${colors.border} ${colors.cardHover} transition-all duration-200`}>
-              <div className="flex flex-col md:flex-row gap-6">
-                <div className="flex-shrink-0 w-full md:w-auto flex flex-col items-center">
-                  <div className="w-24 h-24 rounded-full overflow-hidden bg-gray-200">
+            <div key={index} className={`${colors.card} rounded-lg p-8 shadow-md border ${colors.border} ${colors.cardHover} transition-all duration-200`}>
+              <div className="flex flex-col md:flex-row gap-8">
+                <div className="flex-shrink-0 w-full md:w-48 flex flex-col items-center">
+                  <div className="w-24 h-24 rounded-full overflow-hidden bg-gray-200 mb-4">
                     <img 
                       src={speaker.image}
                       alt={speaker.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="text-center mt-2 space-y-1">
-                    <p className="font-medium">{speaker.name}</p>
-                    <p className={`${colors.muted} text-sm`}>{speaker.title}</p>
-                    <p className={`${colors.muted} text-sm`}>{speaker.organization}</p>
+                  <div className="text-center space-y-1 w-full">
+                    <p className="font-lato font-medium">{speaker.name}</p>
+                    <p className={`${colors.muted} text-sm font-light`}>{speaker.title}</p>
+                    <p className={`${colors.muted} text-sm font-light`}>{speaker.organization}</p>
                   </div>
                 </div>
-                <div className="flex-grow">
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-xl font-medium">{speaker.talkTitle}</h3>
-                    <span className={`${colors.muted} text-sm`}>{speaker.time}</span>
+                <div className="flex-1 min-w-0">
+                  <div className="flex justify-between items-start mb-6">
+                    <h3 className="text-xl font-lato pr-4">{speaker.talkTitle}</h3>
+                    <span className={`${colors.muted} text-sm font-light flex-shrink-0`}>{speaker.time}</span>
                   </div>
-                  <div className="space-y-4">
+                  <div className="space-y-6">
                     {speaker.abstract && (
                       <div>
-                        <h4 className="font-medium mb-2">Abstract:</h4>
-                        <p className={`${colors.muted} leading-relaxed whitespace-pre-line`}>{speaker.abstract}</p>
+                        <h4 className="font-lato font-medium mb-3">Abstract:</h4>
+                        <p className={`${colors.muted} leading-relaxed whitespace-pre-line font-light max-w-full`}>
+                          {speaker.abstract}
+                        </p>
                       </div>
                     )}
                     <div>
-                      <h4 className="font-medium mb-2">Speaker Bio:</h4>
-                      <p className={`${colors.muted} leading-relaxed`}>{speaker.bio}</p>
+                      <h4 className="font-lato font-medium mb-3">Speaker Bio:</h4>
+                      <p className={`${colors.muted} leading-relaxed font-light max-w-full`}>
+                        {speaker.bio}
+                      </p>
                     </div>
                   </div>
                 </div>

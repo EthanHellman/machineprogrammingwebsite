@@ -7,8 +7,8 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        'stanford-red': '#B51017',
+      fontFamily: {
+        lato: ['var(--font-lato)', 'sans-serif'],
       },
     },
   },
