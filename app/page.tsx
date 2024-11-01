@@ -105,7 +105,9 @@ Join me for an honest exploration of how ML/AI serves the open source ecosystem 
           <div className="px-6 flex justify-between items-center">
             <div>
               <h1 className="text-4xl font-lato mb-4">Machine Programming Lecture Day</h1>
-              <h2 className="text-2xl font-lato mb-2">Stanford CS 329M</h2>
+              <h2 className="text-2xl font-lato mb-2">
+                <a href='https://sites.google.com/view/gottschlich/mp-stanford-cs-329m' style={{ textDecoration: 'underline' }}>Stanford CS 329M</a>
+              </h2>
               <div className="flex items-center gap-2">
                 <Calendar className="w-5 h-5" />
                 <p className="text-xl font-lato">December 2, 2024 • 11:00 AM - 1:00 PM PST</p>
@@ -139,7 +141,43 @@ Join me for an honest exploration of how ML/AI serves the open source ecosystem 
           <p className={`${colors.muted} leading-relaxed mt-4 font-light`}>
             From scaling human review systems to revolutionizing physics simulations, our speakers will present innovative approaches to some of the most challenging problems in software development and AI safety.
           </p>
+
+          <div className="border-t border-[#234477] ml-2 mr-6 mt-6 pt-6">
+            <div className="flex flex-col md:flex-row gap-8">
+              <div className="flex-shrink-0 w-full md:w-48">
+                <div className="w-24 h-24 rounded-full overflow-hidden bg-gray-200 mb-4">
+                  <img 
+                    src="/images/speakers/justin.jpg"
+                    alt="Justin Gottschlich" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <p className="font-lato font-bold text-lg tracking-wide">
+                    Justin Gottschlich
+                  </p>
+                  <p className={`${colors.muted} text-sm italic font-medium`}>
+                    Founder, CEO & Chief Scientist
+                  </p>
+                  <p className={`${colors.muted} text-sm font-light border-b border-gray-600 pb-2`}>
+                    Merly • Stanford University
+                  </p>
+                </div>
+              </div>
+              <div className="flex-1 min-w-0 ">
+                <h3 className="text-xl font-lato pr-4">Host Bio</h3>
+
+                <div className="flex justify-between items-start mb-2 pl-3 pt-5">
+                  <p className={`${colors.muted} leading-relaxed font-light`}>
+                    Justin Gottschlich is the Founder, CEO & Chief Scientist of Merly, a company aimed at making software developers more productive using state-of-the-art machine programming systems. Dr. Gottschlich also has an academic appointment as an Adjunct Lecturer at Stanford University, where he teaches machine programming at the graduate level. Previously, Justin was a Principal AI Scientist and the Founder & Director of Machine Programming Research at Intel Labs and an Adjunct Assistant Professor at the University of Pennsylvania. In 2017, he co-founded the ACM SIGPLAN Machine Programming Symposium (MAPS) and now serves as its Steering Committee Chair. In 2019, he gave the keynote address for the University of Pennsylvania’s PRECISE Industry Day. He has ~45 peer-reviewed publications, ~100 issued patents, and ~130 patents pending. Dr. Gottschlich and his team’s research have been highlighted in venues including The Wall Street Journal, DeepLearning.ai, Communications of the ACM, MIT Technology Review, and The New York Times.
+                  </p>
+                </div>
+                
+              </div>
+            </div>
+          </div>
         </section>
+
 
         <a 
           href="https://www.eventbrite.com/e/cs-329m-speaker-series-mock-event-tickets-1063243753689" 
