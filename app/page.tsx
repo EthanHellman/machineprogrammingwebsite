@@ -75,9 +75,6 @@ Join me for an honest exploration of how ML/AI serves the open source ecosystem 
     }
   ];
 
-  // State for expanded sections
-  // const [expandedSections, setExpandedSections] = useState({});
-
   interface ExpandedSections {
     [key: string]: boolean;
   }
@@ -91,15 +88,8 @@ Join me for an honest exploration of how ML/AI serves the open source ecosystem 
     }));
   };
 
-  // const toggleSection = (speakerIndex, section) => {
-  //   setExpandedSections(prev => ({
-  //     ...prev,
-  //     [`${speakerIndex}-${section}`]: !prev[`${speakerIndex}-${section}`]
-  //   }));
-  // };
-
-  const formatAbstractWithBullets = (abstract) => {
-    return abstract.split('\n').map((line, index) => {
+  const formatAbstractWithBullets = (abstract: string): React.ReactNode[] => {
+    return abstract.split('\n').map((line: string, index: number) => {
       if (line.startsWith('•')) {
         return (
           <li key={index} className="ml-6">
