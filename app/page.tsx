@@ -76,14 +76,27 @@ Join me for an honest exploration of how ML/AI serves the open source ecosystem 
   ];
 
   // State for expanded sections
-  const [expandedSections, setExpandedSections] = useState({});
+  // const [expandedSections, setExpandedSections] = useState({});
 
-  const toggleSection = (speakerIndex, section) => {
+  interface ExpandedSections {
+    [key: string]: boolean;
+  }
+
+  const [expandedSections, setExpandedSections] = useState<ExpandedSections>({});
+
+  const toggleSection = (speakerIndex: number | string, section: string): void => {
     setExpandedSections(prev => ({
       ...prev,
       [`${speakerIndex}-${section}`]: !prev[`${speakerIndex}-${section}`]
     }));
   };
+
+  // const toggleSection = (speakerIndex, section) => {
+  //   setExpandedSections(prev => ({
+  //     ...prev,
+  //     [`${speakerIndex}-${section}`]: !prev[`${speakerIndex}-${section}`]
+  //   }));
+  // };
 
   const formatAbstractWithBullets = (abstract) => {
     return abstract.split('\n').map((line, index) => {
