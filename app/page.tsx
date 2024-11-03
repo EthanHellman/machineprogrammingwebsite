@@ -109,7 +109,7 @@ Join me for an honest exploration of how ML/AI serves the open source ecosystem 
             <div>
               <h1 className="text-4xl font-lato mb-4">Machine Programming Lecture Day</h1>
               <h2 className="text-2xl font-lato mb-2">
-                <a href='https://sites.google.com/view/gottschlich/mp-stanford-cs-329m' style={{ textDecoration: 'underline' }}>Stanford CS 329M</a>
+                <a href='https://sites.google.com/view/gottschlich/mp-stanford-cs-329m' target="_blank" style={{ textDecoration: 'underline' }}>Stanford CS 329M</a>
               </h2>
               <div className="flex items-center gap-2">
                 <Calendar className="w-5 h-5" />
